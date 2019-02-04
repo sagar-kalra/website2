@@ -7,14 +7,15 @@ import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
+import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
+import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
 import TimerIcon from '@material-ui/icons/Timer';
 import DateRangeIcon from '@material-ui/icons/DateRange';
+import { CardMedia } from '@material-ui/core';
 
 function TabContainer({ children, dir }) {
   return (
@@ -35,11 +36,23 @@ const styles = theme => ({
     width: '100%',
   },
   card: {
-    maxWidth: '100%',
+    minWidth: 275,
     marginBottom: '3%'
   },
-  media: {
-    objectFit: 'fill',
+  bullet: {
+    display: 'inline-block',
+    margin: '0 2px',
+    transform: 'scale(0.8)',
+  },
+  dateTime: {
+    marginLeft: 'auto',
+    paddingRight: '200px'
+  },
+  title: {
+    fontSize: 14,
+  },
+  pos: {
+    marginBottom: 12,
   },
 });
 
@@ -71,32 +84,59 @@ class Events extends React.Component {
        return (<h1>No Data Found</h1>)
      }     
      return eventsData.map((data, index) => {
+       console.log(data);
        var startDate = new Date(data.startTime), endDate = new Date(data.endTime);
-      return (<Card className={classes.card} key={index}>
-        <CardActionArea>
-          <CardMedia
-            component="img"
-            alt="Event Logo"
-            className={classes.media}
-            height="300"
-            image={data.image}
-            title="Contemplative Reptile"
-          />
-          <CardContent>
-            <Typography gutterBottom component="h2">
-              {data.name}
+      return (<Card className={classes.card} >
+        <CardMedia
+        component="img"
+        alt="Contemplative Reptile"
+        className={classes.media}
+        height="340"
+        image={data.image}
+        title="Contemplative Reptile"
+        />
+        <CardContent>
+          <Typography variant="h5" component="h2">
+           {data.name}
+          </Typography>
+          <Typography component="p">
+            {data.description}
+            <br />
+          </Typography>
+        </CardContent>
+        <CardActions >
+          <Typography >
+          <TimerIcon style={{verticalAlign: 'middle'}} /> {startDate.toLocaleTimeString()} - {endDate.toLocaleTimeString()}
+            <br />
+            <DateRangeIcon style={{verticalAlign: 'middle'}}/> {startDate.toDateString()}
             </Typography>
-            <Typography component="p">
-              {data.description}
-            </Typography>
-            <Typography >
-              <TimerIcon style={{verticalAlign: 'middle'}} /> {startDate.toLocaleTimeString()} - {endDate.toLocaleTimeString()}
-              <br />
-              <DateRangeIcon style={{verticalAlign: 'middle'}}/> {startDate.toDateString()}
-            </Typography>
-          </CardContent>
-        </CardActionArea>
+        </CardActions>
       </Card>);
+      // return (<Card className={classes.card} key={index}>
+      //   <CardActionArea>
+      //     <CardMedia
+      //       component="img"
+      //       alt="Event Logo"
+      //       className={classes.media}
+      //       height="300"
+      //       image={data.image}
+      //       title="Contemplative Reptile"
+      //     />
+      //     <CardContent>
+      //       <Typography gutterBottom component="h2">
+      //         {data.name}
+      //       </Typography>
+      //       <Typography component="p">
+      //         {data.description}
+      //       </Typography>
+      //       <Typography >
+      //         <TimerIcon style={{verticalAlign: 'middle'}} /> {startDate.toLocaleTimeString()} - {endDate.toLocaleTimeString()}
+      //         <br />
+      //         <DateRangeIcon style={{verticalAlign: 'middle'}}/> {startDate.toDateString()}
+      //       </Typography>
+      //     </CardContent>
+      //   </CardActionArea>
+      // </Card>);
      });
   }
 
