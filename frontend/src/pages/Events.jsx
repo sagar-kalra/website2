@@ -51,12 +51,12 @@ class Events extends React.Component {
   };
 
   componentWillMount() {
-     axios.get('http://localhost:8000/api/upcomingEvents/')
+     axios.get('/api/upcomingEvents/')
      .then(json=> {
        this.setState({upcomingEvents: json.data});
        console.log(this.state.upcomingEvents);
      });
-    axios.get('http://localhost:8000/api/pastEvents/')
+    axios.get('/api/pastEvents/')
     .then(json=> {
       this.setState({pastEvents: json.data});
       console.log(this.state.pastEvents);
