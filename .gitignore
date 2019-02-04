@@ -6,3 +6,4 @@ staticfiles
 assets
 webpack-stats.*
 node_modules
+media
