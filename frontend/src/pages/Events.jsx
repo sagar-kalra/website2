@@ -70,9 +70,9 @@ class Events extends React.Component {
      if(eventsData.length == 0 ) {
        return (<h1>No Data Found</h1>)
      }     
-     return eventsData.map((data) => {
+     return eventsData.map((data, index) => {
        var startDate = new Date(data.startTime), endDate = new Date(data.endTime);
-      return (<Card className={classes.card}>
+      return (<Card className={classes.card} key={index}>
         <CardActionArea>
           <CardMedia
             component="img"
@@ -83,7 +83,7 @@ class Events extends React.Component {
             title="Contemplative Reptile"
           />
           <CardContent>
-            <Typography gutterBottom variant="h5" component="h2">
+            <Typography gutterBottom component="h2">
               {data.name}
             </Typography>
             <Typography component="p">
