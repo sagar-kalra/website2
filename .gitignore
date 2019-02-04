@@ -5,5 +5,4 @@ staticfiles
 *.sqlite3
 assets
 webpack-stats.*
-migrations
 node_modules
