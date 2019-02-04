@@ -11,5 +11,7 @@ python_version = "3.6"
 django-heroku = "*"
 gunicorn = "*"
 django-webpack-loader = "*"
+pillow = "*"
+djangorestframework = "*"
 
 [dev-packages]

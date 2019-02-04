@@ -15,11 +15,16 @@ Including another URLconf
 """
 
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from django.views.generic import TemplateView, RedirectView
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/', include('programmingClub.urls')),
     path('<str>/', TemplateView.as_view(template_name="index.html"), name='frontend'),
-    path('', RedirectView.as_view(url='/home/')),
+    path('', RedirectView.as_view(url='/home/'))
 ]
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

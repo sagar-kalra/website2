@@ -5,6 +5,7 @@ import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import grey from '@material-ui/core/colors/grey';
 import Home from './pages/Home';
 import Resources from './pages/Resources';
+import Events from './pages/Events';
 import Nav from './components/Nav';
 import NavDrawer from './components/NavDrawer';
 
@@ -68,6 +69,7 @@ class App extends React.Component {
               <Switch>
                 <Route path={'/home/'} exact component={Home} />
                 <Route path={'/resources/'} exact component={Resources} />
+                <Route path={'/events/'} exact component={Events} />
               </Switch>
             </div>
           </div>

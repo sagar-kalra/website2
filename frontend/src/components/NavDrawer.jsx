@@ -51,6 +51,9 @@ class NavDrawer extends Component {
           <ListItem button  onClick={() => this.goToPath('/resources/')} >
             <ListItemText primary="Resources" />
           </ListItem>
+          <ListItem button onClick={() => this.goToPath('/events/')} >
+            <ListItemText primary="Events" />
+          </ListItem>
         </List>
       </div>
     );
